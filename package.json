@@ -1,8 +1,14 @@
 {
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "name": "react-boilerplate",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aws-amplify/ui-react": "^4.0.3",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -11,6 +17,10 @@
     "@types/react": "^17.0.22",
     "@types/react-dom": "^17.0.9",
     "amazon-cognito-identity-js": "^5.2.12",
+    "aws-amplify": "^5.0.4",
+    "aws-amplify-react": "^5.1.43",
+    "aws-sdk": "^2.1255.0",
+    "dotenv": "^16.0.3",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

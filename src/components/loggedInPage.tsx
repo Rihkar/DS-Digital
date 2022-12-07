@@ -1,9 +1,35 @@
+/* eslint-disable max-len */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const aws = require('aws-sdk');
+
 const loggedInPage = () => {
   const [logoutVisible, setLogoutVisible] = useState(false);
+  const [img, setImg] = useState('');
+  const [s3content, setS3conent] = useState([]);
   const navigate = useNavigate();
+  async function yo() {
+    try {
+      aws.config.update({
+        accessKeyId: process.env.REACT_APP_ACCESS_KEY,
+        secretAccessKey: process.env.REACT_APP_SECRET_KEY,
+
+      });
+      const s3 = new aws.S3();
+      const response = await s3.listObjectsV2({
+        Bucket: 's3-bucket-drones-solutions-us-east-1',
+        Prefix: 'DS Digital/',
+      }).promise();
+      console.log('my image', response.Contents[2]);
+      console.log('response', response.Contents.map(({ Key }:any) => Key).filter((file:string) => file.endsWith('/')));
+      setImg(response.Contents[2]);
+      setS3conent(response.Contents.map(({ Key }:any) => Key).filter((file:string) => file));
+    } catch (error) {
+      console.log('error', error);
+    }
+  }
+
   return (
     <div>
 
@@ -45,6 +71,15 @@ const loggedInPage = () => {
             </div>
 
           </div>
+
+          <button onClick={() => yo()}>test</button>
+          <img src={img} alt="imagem-test" />
+          <div>
+            {s3content.map((fileName) => (
+              <div key={Math.random()}>{fileName}</div>
+            ))}
+          </div>
+
           <div className={`${(logoutVisible ? 'logout' : 'hidden')}`} onClick={() => navigate('/')}>Log out</div>
           <div className="footer">
             <img src="https://cdn-icons-png.flaticon.com/512/733/733641.png" alt="" />
