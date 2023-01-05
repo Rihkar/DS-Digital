@@ -1,12 +1,9 @@
+/* eslint-disable max-len */
 /* eslint-disable global-require */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  CognitoUserPool,
-  CognitoUserAttribute,
-  CognitoUser,
-} from 'amazon-cognito-identity-js';
-import UserPool from './userPool';
+import signUpClientCSS from './signUpPageClient.module.scss';
+import UserPool from '../userPool';
 
 const signUpPageClient = () => {
   const [email, setEmail] = useState('');
@@ -17,9 +14,7 @@ const signUpPageClient = () => {
 
   const navigate = useNavigate();
 
-  // Modules, e.g. Webpack:
   const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
-  // const { CognitoUserPool } = AmazonCognitoIdentity;
 
   const attributeList:any = [];
   const dataName = {
@@ -28,11 +23,11 @@ const signUpPageClient = () => {
   };
   const dataEmail = {
     Name: 'email',
-    Value: email, // your email here
+    Value: email,
   };
   const dataPhoneNumber = {
     Name: 'phone_number',
-    Value: phoneNr, // your phone number here with +country code and no delimiters in front
+    Value: phoneNr,
 
   };
   const dataCompanyName = {
@@ -62,30 +57,31 @@ const signUpPageClient = () => {
 
   return (
     <div>
-      <form className="form" onSubmit={onSubmit}>
+      <form className={signUpClientCSS.form} onSubmit={onSubmit}>
+        <div className={signUpClientCSS.form_title}>SIGN UP</div>
         <label htmlFor="email">
           Email
-          <input className="input" type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+          <input required className={signUpClientCSS.input} type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
         </label>
         <label htmlFor="name">
           Name
-          <input className="input" type="text" value={name} onChange={(event) => setName(event.target.value)} />
+          <input required className={signUpClientCSS.input} type="text" value={name} onChange={(event) => setName(event.target.value)} />
         </label>
         <label htmlFor="companyName">
           Company name
-          <input className="input" type="text" value={companyName} onChange={(event) => setCompanyName(event.target.value)} />
+          <input required className={signUpClientCSS.input} type="text" value={companyName} onChange={(event) => setCompanyName(event.target.value)} />
         </label>
 
         <label htmlFor="password">
           Password
-          <input className="input" type="text" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <input required className={signUpClientCSS.input} type="text" value={password} onChange={(event) => setPassword(event.target.value)} />
         </label>
         <label htmlFor="phoneNr">
           Phone number
-          <input className="input" type="text" value={phoneNr} onChange={(event) => setphoneNr(event.target.value)} />
+          <input required className={signUpClientCSS.input} type="text" value={phoneNr} onChange={(event) => setphoneNr(event.target.value)} />
         </label>
 
-        <button type="submit">Sign up</button>
+        <button className={signUpClientCSS.sign_up_button} type="submit">SIGN UP</button>
       </form>
     </div>
 
