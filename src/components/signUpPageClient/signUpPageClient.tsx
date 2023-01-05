@@ -56,7 +56,7 @@ const signUpPageClient = () => {
   };
 
   return (
-    <div>
+    <div className={signUpClientCSS.container}>
       <form className={signUpClientCSS.form} onSubmit={onSubmit}>
         <div className={signUpClientCSS.form_title}>SIGN UP</div>
         <label htmlFor="email">
