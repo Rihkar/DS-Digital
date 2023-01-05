@@ -12,8 +12,8 @@ const DSPage = () => {
         </div>
         <div className={homePageCSS.text}>contato@dronessolution.com.br</div>
         <div>
-          <button onClick={() => navigate('/sign-up-as-client')}>Sign up as client</button>
-          <button onClick={() => navigate('/sign-up-as-pilot')}>Sign up as pilot</button>
+          <button onClick={() => navigate('/client-or-pilot')}>Sign Up</button>
+          <button onClick={() => navigate('/client-or-pilot')}>Log In</button>
         </div>
 
       </div>

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserPool from '../userPool';
-import signUpClientCSS from './signUpPagePilot.module.scss';
+import signUpPilotCSS from './signUpPagePilot.module.scss';
 
 const signUpPagePilot = () => {
   const [email, setEmail] = useState('');
@@ -21,35 +21,35 @@ const signUpPagePilot = () => {
   };
 
   return (
-    <div>
-      <form className={signUpClientCSS.form} onSubmit={onSubmit}>
-        <div className={signUpClientCSS.form_title}>SIGN UP</div>
+    <div className={signUpPilotCSS.container}>
+      <form className={signUpPilotCSS.form} onSubmit={onSubmit}>
+        <div className={signUpPilotCSS.form_title}>SIGN UP</div>
 
         <label htmlFor="email">
           Email
-          <input className={signUpClientCSS.input} type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
+          <input className={signUpPilotCSS.input} type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
         </label>
         <label htmlFor="password">
           Password
-          <input className={signUpClientCSS.input} type="text" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <input className={signUpPilotCSS.input} type="text" value={password} onChange={(event) => setPassword(event.target.value)} />
         </label>
         <label htmlFor="password">
           Repeat Password
-          <input className={signUpClientCSS.input} type="text" />
+          <input className={signUpPilotCSS.input} type="text" />
         </label>
         Gender
-        <label htmlFor="password">
+        <label htmlFor="gender">
           male
-          <input className={signUpClientCSS.input} type="radio" />
+          <input value="gender" className={signUpPilotCSS.input} type="radio" />
           female
-          <input className={signUpClientCSS.input} type="radio" />
+          <input value="gender" className={signUpPilotCSS.input} type="radio" />
         </label>
         <label htmlFor="password">
           Do you have drone pilot licence
-          <input className={signUpClientCSS.input} type="checkbox" />
+          <input className={signUpPilotCSS.input} type="checkbox" />
         </label>
 
-        <button className={signUpClientCSS.sign_up_button} type="submit" onClick={() => navigate('/logged-in-page')}>Sign up</button>
+        <button className={signUpPilotCSS.sign_up_button} type="submit" onClick={() => navigate('/logged-in-page')}>Sign up</button>
       </form>
     </div>
 
