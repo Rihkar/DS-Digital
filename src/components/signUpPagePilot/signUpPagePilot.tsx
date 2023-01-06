@@ -9,20 +9,20 @@ const signUpPagePilot = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const onSubmit = (event:any) => {
-    event.preventDefault();
+  // const onSubmit = (event:any) => {
+  //   event.preventDefault();
 
-    UserPool.signUp(email, password, [], null, (err, data) => {
-      if (err) {
-        console.log(err);
-      }
-      console.log(data);
-    });
-  };
+  //   UserPool.signUp(email, password, attributesList, [], (err, data) => {
+  //     if (err) {
+  //       console.log(err);
+  //     }
+  //     console.log(data);
+  //   });
+  // };
 
   return (
     <div className={signUpPilotCSS.container}>
-      <form className={signUpPilotCSS.form} onSubmit={onSubmit}>
+      <form className={signUpPilotCSS.form}>
         <div className={signUpPilotCSS.form_title}>SIGN UP</div>
 
         <label htmlFor="email">

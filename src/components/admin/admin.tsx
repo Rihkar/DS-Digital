@@ -1,4 +1,5 @@
 const Admin = () => (
+  // admmin page
   <div>
 
     ADMIN

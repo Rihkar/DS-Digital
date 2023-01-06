@@ -46,8 +46,8 @@ const signUpPageClient = () => {
 
   const onSubmit = (event:any) => {
     event.preventDefault();
-
-    UserPool.signUp(email, password, attributeList, null, (err, data) => {
+    // [] iepists 'null' vietā
+    UserPool.signUp(email, password, attributeList, [], (err, data) => {
       if (err) {
         console.log(err);
       }
@@ -74,7 +74,7 @@ const signUpPageClient = () => {
 
         <label htmlFor="password">
           Password
-          <input required className={signUpClientCSS.input} type="text" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <input required className={signUpClientCSS.input} type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
         </label>
         <label htmlFor="phoneNr">
           Phone number
